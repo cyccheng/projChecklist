@@ -13,6 +13,8 @@ public class MobappActivity  extends AppCompatActivity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        MobappApplicationState.getInstance().setCurrentActivity(this);
         MobappApplicationState.getInstance().setCurrentActiveContext(this);
     }
 }

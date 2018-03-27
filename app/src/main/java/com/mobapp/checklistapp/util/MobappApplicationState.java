@@ -1,5 +1,6 @@
 package com.mobapp.checklistapp.util;
 
+import android.app.Activity;
 import android.content.Context;
 import junit.framework.Assert;
 
@@ -10,6 +11,7 @@ import junit.framework.Assert;
 public class MobappApplicationState
 {
     private static MobappApplicationState instance = null;
+    private Activity currentActivity = null;
     private Context currentActiveContext = null;
 
     // ============================================================================================
@@ -40,6 +42,16 @@ public class MobappApplicationState
     // ============================================================================================
     // Getter & Setter
     // ============================================================================================
+
+    public Activity getCurrentActivity()
+    {
+        return currentActivity;
+    }
+
+    public void setCurrentActivity(Activity currentActivity)
+    {
+        this.currentActivity = currentActivity;
+    }
 
     public Context getCurrentActiveContext()
     {

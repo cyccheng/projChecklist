@@ -1,6 +1,13 @@
 package com.mobapp.checklistapp.util;
 
-import android.widget.Button;
+import android.content.Context;
+import android.content.Intent;
+import android.view.inputmethod.InputMethodManager;
+
+import com.mobapp.checklistapp.HomeAdminActivity;
+import com.mobapp.checklistapp.HomeUserActivity;
+import com.mobapp.checklistapp.LoginActivity;
+
 import junit.framework.Assert;
 
 /**
@@ -45,22 +52,38 @@ public class MobappViewControlManager
         instance = null;
     }
 
-    public void setBtnEnabled(Button button, Boolean enabled)
-    {
-        button.setEnabled(enabled);
+    public void routeAfterSplashScreen() {
+        if (MobappUserDataHandler.getInstance().isLoggedIn()) {
+            MobappViewControlManager.getInstance().showHomeScreen();
+        }
+        else {
+            MobappViewControlManager.getInstance().showLoginScreen();
+        }
+    }
 
-        if (enabled)
-        {
-            button.setAlpha(1.0f);
-        }
-        else
-        {
-            button.setAlpha(0.4f);
-        }
+    public void routeAfterLogout() {
+        MobappViewControlManager.getInstance().showLoginScreen();
+    }
+
+    public void dismissKeyboard() {
+        InputMethodManager imm = (InputMethodManager)MobappApplicationState.getInstance().getCurrentActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(MobappApplicationState.getInstance().getCurrentActivity().getCurrentFocus().getWindowToken(), 0);
     }
 
     // ============================================================================================
     // Private Methods
     // ============================================================================================
 
+    private void showLoginScreen() {
+        MobappApplicationState.getInstance().getCurrentActivity().startActivity(new Intent(MobappApplicationState.getInstance().getCurrentActiveContext(), LoginActivity.class));
+    }
+
+    private void showHomeScreen() {
+        if (MobappUserDataHandler.getInstance().getUserIdentity() == MobappConstant.MOBAPP_USER_IDENTITY_ADMIN) {
+            MobappApplicationState.getInstance().getCurrentActivity().startActivity(new Intent(MobappApplicationState.getInstance().getCurrentActiveContext(), HomeAdminActivity.class));
+        }
+//        else {
+        MobappApplicationState.getInstance().getCurrentActivity().startActivity(new Intent(MobappApplicationState.getInstance().getCurrentActiveContext(), HomeUserActivity.class));
+//        }
+    }
 }

@@ -46,12 +46,22 @@ public class MobappUserDataHandler
 
     public String getUserID() throws Error
     {
-        return getString(MobappConstant.MOBAPP_SHARED_PREFERENCES_KEY_USERID);
+        return getString(MobappConstant.MOBAPP_SHARED_PREFERENCES_KEY_USER_ID);
     }
 
     public void setUserID(String userID) throws Error
     {
-        setString(MobappConstant.MOBAPP_SHARED_PREFERENCES_KEY_USERID, userID);
+        setString(MobappConstant.MOBAPP_SHARED_PREFERENCES_KEY_USER_ID, userID);
+    }
+
+    public String getUserIdentity() throws Error
+    {
+        return getString(MobappConstant.MOBAPP_SHARED_PREFERENCES_KEY_USER_IDENTITY);
+    }
+
+    public void setUserIdentity(String userIdentity) throws Error
+    {
+        setString(MobappConstant.MOBAPP_SHARED_PREFERENCES_KEY_USER_IDENTITY, userIdentity);
     }
 
     public Boolean isLoggedIn() throws Error

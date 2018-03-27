@@ -1,9 +1,19 @@
 <resources>
     <string name="app_name">ChecklistApp</string>
 
+    <!-- Progress Dialog -->
+    <string name="PROGRESS_DIALOG_TITLE">Loading</string>;
+    <string name="PROGRESS_DIALOG_MSG">Wait while loading...</string>;
+
+    <!-- Alert -->
+    <string name="ALERT_INCOMPLETE_TITLE">Incomplete</string>
+    <string name="ALERT_INCOMPLETE_MSG">All fields are required.</string>
+    <string name="ALERT_BTN_OK">OK</string>
+
     <!-- Login -->
-    <string name="txt_lbl_login_id">Login ID</string>
-    <string name="txt_lbl_password">Password</string>
-    <string name="btn_login">Login</string>
+    <string name="LOGIN_LBL_LOGIN_ID">Login ID</string>
+    <string name="LOGIN_LBL_PASSWORD">Password</string>
+    <string name="LOGIN_BTN_LOGIN">Login</string>
+
 
 </resources>
