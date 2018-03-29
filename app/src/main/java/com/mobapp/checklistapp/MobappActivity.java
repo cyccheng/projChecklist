@@ -17,4 +17,8 @@ public class MobappActivity  extends AppCompatActivity {
         MobappApplicationState.getInstance().setCurrentActivity(this);
         MobappApplicationState.getInstance().setCurrentActiveContext(this);
     }
+
+    public void onStart() {
+        super.onStart();
+    }
 }
