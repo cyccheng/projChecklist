@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottomBarBtnHome"
+        android:title="@string/HOME_NAV_TITLE"/>
+
+    <item
+        android:id="@+id/bottomBarBtnTemplate"
+        android:title="@string/TEMPLATE_NAV_TITLE"/>
+
+    <item
+        android:id="@+id/bottomBarBtnSettings"
+        android:title="@string/SETTINGS_NAV_TITLE"/>
+
+</menu>

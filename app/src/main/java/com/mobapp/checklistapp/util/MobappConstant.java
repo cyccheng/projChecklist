@@ -22,4 +22,7 @@ public final class MobappConstant
 
     // Alert Tag
     public final static int MOBAPP_ALERT_TAG_LOGIN_ERROR                 = 1000;     //example
+
+    // Intent
+    public final static String HOME_INTENT_VIEW_TYPE                     = "HOME_VIEW_TYPE_INTENT";
 }

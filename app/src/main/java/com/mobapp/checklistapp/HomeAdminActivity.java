@@ -6,7 +6,7 @@ import android.os.Bundle;
  * Created by sherynn on 27/03/2018.
  */
 
-public class HomeAdminActivity extends MobappActivity {
+public class HomeAdminActivity extends HomeMainActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

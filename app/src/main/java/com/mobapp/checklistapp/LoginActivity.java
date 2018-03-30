@@ -34,9 +34,12 @@ public class LoginActivity extends MobappActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        ref = FirebaseDatabase.getInstance().getReference("userID");
+        super.setContentView(R.layout.activity_login);
+//        super.setContentViewWithAnimation(R.layout.activity_login, false);
+
         initUI();
+
+        ref = FirebaseDatabase.getInstance().getReference("userID");
     }
 
     @Override

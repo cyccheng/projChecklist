@@ -6,11 +6,14 @@ import android.os.Bundle;
  * Created by sherynn on 27/03/2018.
  */
 
-public class HomeUserActivity extends MobappActivity {
+public class HomeUserActivity extends HomeMainActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_user);
+        super.setContentView(R.layout.activity_home_user);
+//        super.setViewContent(R.layout.activity_home_user);
+//        super.setNavBtnBackHidden(true);
+//        super.setNavTitle(getString(R.string.HOME_NAV_TITLE));
     }
 }

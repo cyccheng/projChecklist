@@ -9,6 +9,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.mobapp.checklistapp.util.MobappUtil;
 import com.mobapp.checklistapp.util.MobappViewControlManager;
 import com.mobapp.checklistapp.vo.LoginVO;
 
@@ -24,18 +25,13 @@ public class MainActivity extends MobappActivity {
 
         ref = FirebaseDatabase.getInstance().getReference("userID");
 
-
-
-
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 MobappViewControlManager.getInstance().routeAfterSplashScreen();
             }
-        }, 2000);
-
-
+        }, 1000);
     }
 
     @Override

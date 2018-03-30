@@ -15,5 +15,13 @@
     <string name="LOGIN_LBL_PASSWORD">Password</string>
     <string name="LOGIN_BTN_LOGIN">Login</string>
 
+    <!-- Home -->
+    <string name="HOME_NAV_TITLE">Home</string>
+
+    <!-- Template -->
+    <string name="TEMPLATE_NAV_TITLE">Templates</string>
+
+    <!-- Settings -->
+    <string name="SETTINGS_NAV_TITLE">Settings</string>
 
 </resources>

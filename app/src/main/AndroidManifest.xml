@@ -17,7 +17,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".MobappActivity">
+        </activity>
+
         <activity android:name=".LoginActivity">
+        </activity>
+
+        <activity android:name=".HomeMainActivity">
         </activity>
 
         <activity android:name=".HomeAdminActivity">
