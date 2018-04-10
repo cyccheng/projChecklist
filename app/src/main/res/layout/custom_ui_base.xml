@@ -6,14 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.mobapp.checklistapp.MobappActivity">
 
-    <FrameLayout
-        android:id="@+id/viewContent"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_above="@+id/viewBottomBar"
-        android:layout_below="@+id/viewTopBar">
-    </FrameLayout>
-
     <android.support.constraint.ConstraintLayout
         android:id="@+id/viewTopBar"
         android:layout_width="match_parent"
@@ -58,6 +50,16 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/ic_menu_add" />
     </android.support.constraint.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/viewContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewTopBar">
+    </FrameLayout>
 
     <!--<android.support.design.widget.BottomNavigationView-->
         <!--android:id="@+id/viewBottomBar"-->

@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">ChecklistApp</string>
+    <string name="GENERAL_DUMMY">Dummy</string>
+    <string name="GENERAL_YES">Yes</string>
+    <string name="GENERAL_NO">No</string>
+    <string name="GENERAL_NA">N/A</string>
 
     <!-- Progress Dialog -->
     <string name="PROGRESS_DIALOG_TITLE">Loading</string>;

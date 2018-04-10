@@ -1,0 +1,23 @@
+<resources>
+    <string-array name="answer">
+        <item>"Yes"</item>
+        <item>"No"</item>
+        <item>"N/A"</item>
+    </string-array>
+
+    <string-array name="GH2_1">
+        <item>"Is the system correctly labelled?"</item>
+        <item>"Are the system safely notices correctly positioned and legible?"</item>
+    </string-array>
+
+    <string-array name="GH2_2">
+        <item>"Where the system is installed outdoors, is it in a freely ventilated locations?"</item>
+        <item>"Where the system is installed indoors, does the indoor installation meet the current Linde requirements?"</item>
+    </string-array>
+
+    <string-array name="GH2_3">
+        <item>"Test"</item>
+        <item>"Test 2"</item>
+    </string-array>
+
+</resources>

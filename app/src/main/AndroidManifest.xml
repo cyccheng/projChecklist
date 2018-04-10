@@ -31,6 +31,9 @@
 
         <activity android:name=".HomeUserActivity">
         </activity>
+
+        <activity android:name=".TemplateActivity">
+        </activity>
     </application>
 
 </manifest>

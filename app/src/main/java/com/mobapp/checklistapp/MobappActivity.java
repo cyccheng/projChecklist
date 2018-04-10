@@ -231,7 +231,7 @@ public class MobappActivity  extends AppCompatActivity {
     // ============================================================================================
 
     public void btnNavBackOnClicked(View view) {
-
+        finish();
     }
 
     public void btnNavAddOnClicked(View view) {

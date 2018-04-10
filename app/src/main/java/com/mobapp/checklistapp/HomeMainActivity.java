@@ -95,12 +95,15 @@ public class HomeMainActivity extends MobappActivity {
         switch (item.getItemId()) {
             case R.id.bottomBarBtnHome:
                 routeToScreen(HomeViewType.ViewHomeUser, true);
+                super.setNavAddButtonHidden(false);
                 break;
             case R.id.bottomBarBtnTemplate:
                 routeToScreen(HomeViewType.ViewTemplate, true);
+                super.setNavAddButtonHidden(true);
                 break;
             case R.id.bottomBarBtnSettings:
                 routeToScreen(HomeViewType.ViewSettings, true);
+                super.setNavAddButtonHidden(true);
                 break;
         }
 

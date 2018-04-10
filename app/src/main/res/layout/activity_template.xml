@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mobapp.checklistapp.HomeUserActivity">
+    tools:context="com.mobapp.checklistapp.TemplateActivity">
 
     <ListView
-        android:id="@+id/listTemplate"
+        android:id="@+id/listQuestion"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </ListView>
