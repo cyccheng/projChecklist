@@ -24,6 +24,11 @@
 
     <!-- Template -->
     <string name="TEMPLATE_NAV_TITLE">Templates</string>
+    <string name="TEMPLATE_LBL_STATUS">Status:</string>
+    <string name="TEMPLATE_LBL_CREATED_ON">Created On:</string>
+    <string name="TEMPLATE_LBL_MODIFIED_ON">Last Modified On:</string>
+    <string name="TEMPLATE_LBL_COMMENT">Comment</string>
+    <string name="TEMPLATE_LBL_SIGNATURE">Signature</string>
 
     <!-- Settings -->
     <string name="SETTINGS_NAV_TITLE">Settings</string>

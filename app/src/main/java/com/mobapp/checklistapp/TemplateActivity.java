@@ -1,6 +1,7 @@
 package com.mobapp.checklistapp;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 
 import com.mobapp.checklistapp.util.MobappApplicationState;
@@ -35,5 +36,10 @@ public class TemplateActivity extends MobappActivity {
 //        ArrayAdapter adapter = new ArrayAdapter<String>(MobappApplicationState.getInstance().getCurrentActiveContext(), R.layout.activity_listitemrow_question, arrQuestion);
         QuestionListViewAdapter adapter = new QuestionListViewAdapter(MobappApplicationState.getInstance().getCurrentActivity(), arrQuestion);
         listQuestion.setAdapter(adapter);
+
+        View header = (View) getLayoutInflater().inflate(R.layout.view_template_header, null);
+        View footer = (View) getLayoutInflater().inflate(R.layout.view_template_footer, null);
+        listQuestion.addHeaderView(header);
+        listQuestion.addFooterView(footer);
     }
 }
