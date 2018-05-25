@@ -25,4 +25,5 @@ public final class MobappConstant
 
     // Intent
     public final static String HOME_INTENT_VIEW_TYPE                     = "HOME_VIEW_TYPE_INTENT";
+    public final static String TEMPLATE_VIEW_INTENT_TEMPLATE_ID          = "TEMPLATE_VIEW_INTENT_TEMPLATE_ID";
 }

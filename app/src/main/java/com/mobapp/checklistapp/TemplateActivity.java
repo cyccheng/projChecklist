@@ -9,6 +9,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.mobapp.checklistapp.util.MobappApplicationState;
+import com.mobapp.checklistapp.util.MobappConstant;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,7 @@ public class TemplateActivity extends MobappActivity {
     private ListView listQuestion;
     String showQuest;
     DatabaseReference ref;
+    Long templateID;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,12 @@ public class TemplateActivity extends MobappActivity {
         super.setTopBarViewHidden(false);
         super.setNavAddButtonHidden(true);
         super.setNavTitle(getString(R.string.TEMPLATE_NAV_TITLE));
+        super.setNavAddButtonHidden();
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            templateID = bundle.getLong(MobappConstant.TEMPLATE_VIEW_INTENT_TEMPLATE_ID);
+        }
 
         ref = FirebaseDatabase.getInstance().getReference("Question");
 

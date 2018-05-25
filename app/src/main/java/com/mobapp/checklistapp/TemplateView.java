@@ -2,9 +2,6 @@ package com.mobapp.checklistapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.mobapp.checklistapp.util.MobappApplicationState;
+import com.mobapp.checklistapp.util.MobappConstant;
 
 /**
  * Created by sherynn on 30/03/2018.
@@ -33,30 +31,9 @@ public class TemplateView extends FrameLayout {
     private DatabaseReference ref;
 
 
-    public void onCreate(Bundle savedInstanceState) {
+    public void test() {
 
-        ref = FirebaseDatabase.getInstance().getReference("userID");
 
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                //String zzz = dataSnapshot.getKey();
-                //String zzz = dataSnapshot.getValue(String.class);
-                //Log.d(TAG, "Value is: " + value);
-                //LoginVO userName = new LoginVO();
-                showTemplate_data = dataSnapshot.getValue(String.class);
-                //userName.setUserID(tex.getUser(user));
-                //System.out.println(tex);
-                //System.out.println(zzz.user);
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
     }
 
     public TemplateView(Context context) {
@@ -93,18 +70,43 @@ public class TemplateView extends FrameLayout {
         LayoutInflater layoutInflater = (LayoutInflater) parentContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         layoutInflater.inflate(R.layout.template_view, this);
 
-        listTemplate = (ListView) findViewById(R.id.listTemplate);
-        showTemplate_data = "Template 33";
-        final String[] arrTemplate = {"Template 1","Template 2", showTemplate_data};
-        ArrayAdapter adapter = new ArrayAdapter<String>(MobappApplicationState.getInstance().getCurrentActiveContext(), R.layout.activity_listitemrow, arrTemplate);
-        listTemplate.setAdapter(adapter);
+        ref = FirebaseDatabase.getInstance().getReference("userID");
 
-        listTemplate.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
+        ref.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                MobappApplicationState.getInstance().getCurrentActivity().startActivity(new Intent(MobappApplicationState.getInstance().getCurrentActiveContext(), TemplateActivity.class));
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                //String zzz = dataSnapshot.getKey();
+                //String zzz = dataSnapshot.getValue(String.class);
+                //Log.d(TAG, "Value is: " + value);
+                //LoginVO userName = new LoginVO();
+                showTemplate_data = dataSnapshot.getValue(String.class);
+                //userName.setUserID(tex.getUser(user));
+                //System.out.println(tex);
+                //System.out.println(zzz.user);
+
+                listTemplate = (ListView) findViewById(R.id.listTemplate);
+//        showTemplate_data = "Template 33";
+                final String[] arrTemplate = {"Template 1","Template 2", showTemplate_data};
+                ArrayAdapter adapter = new ArrayAdapter<String>(MobappApplicationState.getInstance().getCurrentActiveContext(), R.layout.activity_listitemrow, arrTemplate);
+                listTemplate.setAdapter(adapter);
+
+                listTemplate.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view,
+                                            int position, long id) {
+                        Intent intent = new Intent(MobappApplicationState.getInstance().getCurrentActiveContext(), TemplateActivity.class);
+                        intent.putExtra(MobappConstant.TEMPLATE_VIEW_INTENT_TEMPLATE_ID, id);
+
+                        MobappApplicationState.getInstance().getCurrentActivity().startActivity(intent);
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
     }
