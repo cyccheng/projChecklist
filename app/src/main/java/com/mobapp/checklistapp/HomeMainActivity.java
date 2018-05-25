@@ -34,6 +34,7 @@ public class HomeMainActivity extends MobappActivity {
         super.onCreate(savedInstanceState);
         super.setContentViewWithAnimation(R.layout.activity_home_main, false);
         super.setTopBarViewHidden(false);
+        super.setNavNextButtonHidden(true);
 
         initUI();
         setBottomBarViewHidden(false);

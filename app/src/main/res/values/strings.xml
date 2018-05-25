@@ -5,6 +5,11 @@
     <string name="GENERAL_NO">No</string>
     <string name="GENERAL_NA">N/A</string>
 
+    <!-- Button -->
+    <string name="BTN_NEXT">Next</string>
+    <string name="BTN_SAVE">Save</string>
+    <string name="BTN_SUBMIT">Submit</string>
+
     <!-- Progress Dialog -->
     <string name="PROGRESS_DIALOG_TITLE">Loading</string>;
     <string name="PROGRESS_DIALOG_MSG">Wait while loading...</string>;
@@ -32,5 +37,8 @@
 
     <!-- Settings -->
     <string name="SETTINGS_NAV_TITLE">Settings</string>
+
+    <!-- Capture Signature -->
+    <string name="CAPTURE_SIGNATURE_NAV_TITLE">Signature</string>
 
 </resources>

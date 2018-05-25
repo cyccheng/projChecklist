@@ -34,6 +34,9 @@
 
         <activity android:name=".TemplateActivity">
         </activity>
+
+        <activity android:name=".CaptureSignatureActivity">
+        </activity>
     </application>
 
 </manifest>

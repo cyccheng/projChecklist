@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ public class MobappActivity  extends AppCompatActivity {
     private TextView txtNavTitle;
     private ImageButton btnBack;
     private ImageButton btnAdd;
+    private Button btnNext;
 
     private View currentAttachedView;
     private View viewToBeRemove;
@@ -77,6 +79,7 @@ public class MobappActivity  extends AppCompatActivity {
         txtNavTitle = (TextView) findViewById(R.id.txtNavTitle);
         btnBack = (ImageButton) findViewById(R.id.btnBack);
         btnAdd = (ImageButton) findViewById(R.id.btnAdd);
+        btnNext = (Button) findViewById(R.id.btnNext);
 
         setTopBarViewHidden(true);
 //        setBottomBarViewHidden(true);
@@ -206,6 +209,11 @@ public class MobappActivity  extends AppCompatActivity {
         setNavTitleHidden(false);
     }
 
+    public void setBtnNextTitle(CharSequence text) {
+        btnNext.setText(text);
+        setNavNextButtonHidden(false);
+    }
+
     public void setNavTitleHidden(boolean hidden) {
         txtNavTitle.setVisibility(hidden ? View.INVISIBLE : View.VISIBLE);
     }
@@ -226,6 +234,10 @@ public class MobappActivity  extends AppCompatActivity {
         btnAdd.setVisibility(hidden ? View.INVISIBLE : View.VISIBLE);
     }
 
+    public void setNavNextButtonHidden(boolean hidden) {
+        btnNext.setVisibility(hidden ? View.INVISIBLE : View.VISIBLE);
+    }
+
     // ============================================================================================
     // Button Action
     // ============================================================================================
@@ -235,6 +247,10 @@ public class MobappActivity  extends AppCompatActivity {
     }
 
     public void btnNavAddOnClicked(View view) {
+
+    }
+
+    public void btnNavNextOnClicked(View view) {
 
     }
 
