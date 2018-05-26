@@ -3,6 +3,8 @@ package com.mobapp.checklistapp;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -11,7 +13,10 @@ import com.google.firebase.database.ValueEventListener;
 import com.mobapp.checklistapp.util.MobappApplicationState;
 import com.mobapp.checklistapp.util.MobappConstant;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by sherynn on 10/04/2018.
@@ -23,6 +28,8 @@ public class TemplateActivity extends MobappActivity {
     String showQuest;
     DatabaseReference ref;
     String templateID;
+    private TextView lblStatus;
+    private TextView lblCreatedOn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,8 +50,8 @@ public class TemplateActivity extends MobappActivity {
             templateID = (String)savedInstanceState.getSerializable("templateID_passed");
         }
 
-
         ref = FirebaseDatabase.getInstance().getReference(templateID);
+
         //initUI();
     }
 
@@ -73,8 +80,11 @@ public class TemplateActivity extends MobappActivity {
     // ============================================================================================
 
     private void initUI(DataSnapshot dataSnapshot) {
+
+
         listQuestion = (ListView) findViewById(R.id.listQuestion);
         int i = 1;
+
 
         ArrayList<Item> questList = new ArrayList<Item>();
 
@@ -93,9 +103,20 @@ public class TemplateActivity extends MobappActivity {
 
         QuestionFullListViewAdapter adapter = new QuestionFullListViewAdapter(MobappApplicationState.getInstance().getCurrentActivity(), questList);
         listQuestion.setAdapter(adapter);
-        
+
         View header = (View) getLayoutInflater().inflate(R.layout.view_template_header, null);
         View footer = (View) getLayoutInflater().inflate(R.layout.view_template_footer, null);
+
+        Date dt = Calendar.getInstance().getTime();
+        //System.out.println("Current time => " + c);
+
+        SimpleDateFormat dt_format = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+        String current_Date = dt_format.format(dt);
+
+        lblStatus = header.findViewById(R.id.lblStatus);
+        lblCreatedOn = header.findViewById(R.id.lblCreatedOn);
+        lblStatus.setText("Not Submit");
+        lblCreatedOn.setText(current_Date);
         listQuestion.addHeaderView(header);
         listQuestion.addFooterView(footer);
     }

@@ -48,7 +48,7 @@ public class MainActivity extends MobappActivity {
                 //LoginVO userName = new LoginVO();
                 String tex = dataSnapshot.getValue(String.class);
                 //userName.setUserID(tex.getUser(user));
-                System.out.println(tex);
+                System.out.println("From main activity");
                 //System.out.println(zzz.user);
 
             }

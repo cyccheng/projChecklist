@@ -28,7 +28,6 @@ public class TemplateView extends FrameLayout {
 
     private Context parentContext;
     private ListView listTemplate;
-    String showTemplate_data;
     private DatabaseReference ref;
 
 
@@ -100,6 +99,7 @@ public class TemplateView extends FrameLayout {
                         MobappApplicationState.getInstance().getCurrentActivity().startActivity(intent);
                     }
                 });
+
             }
 
             @Override

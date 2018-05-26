@@ -1,16 +1,30 @@
 package com.mobapp.checklistapp;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.mobapp.checklistapp.util.MobappApplicationState;
+
+import java.util.ArrayList;
 
 /**
  * Created by sherynn on 27/03/2018.
@@ -28,6 +42,7 @@ public class MobappActivity  extends AppCompatActivity {
 
     private View currentAttachedView;
     private View viewToBeRemove;
+    private DatabaseReference ref;
 
 //    private static final String SELECTED_ITEM = "selected_item";
 //    private int intSelectedItem;
@@ -80,6 +95,55 @@ public class MobappActivity  extends AppCompatActivity {
         btnBack = (ImageButton) findViewById(R.id.btnBack);
         btnAdd = (ImageButton) findViewById(R.id.btnAdd);
         btnNext = (Button) findViewById(R.id.btnNext);
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                ref = FirebaseDatabase.getInstance().getReference("TemplateList");
+
+                ref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        AlertDialog.Builder mBuilder = new AlertDialog.Builder(MobappActivity.this);
+                        mBuilder.setTitle("Select a Template:-");
+
+                        final ArrayList<String> templateList = new ArrayList<String>();
+                        for(DataSnapshot ds: dataSnapshot.getChildren()){
+                            templateList.add(ds.getValue(String.class));
+                        }
+
+                        String[] arrTemplate = new String[templateList.size()];
+                        arrTemplate = templateList.toArray(arrTemplate);
+
+                        final ArrayAdapter adapter = new ArrayAdapter<String>(MobappActivity.this, R.layout.activity_listitemrow, arrTemplate);
+                        mBuilder.setAdapter(adapter, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String data= (String)adapter.getItem(which);
+                                Intent intent = new Intent(MobappApplicationState.getInstance().getCurrentActiveContext(), TemplateActivity.class);
+                                intent.putExtra("templateID_passed", data);
+                                MobappApplicationState.getInstance().getCurrentActivity().startActivity(intent);
+                            }
+                        });
+
+                        //View mView = getLayoutInflater().inflate(R.layout.dialog_template, null);
+                        //mBuilder.setView(mView);
+
+                        AlertDialog dialog = mBuilder.create();
+                        dialog.show();
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+                //Toast.makeText(MobappActivity.this, "Onclicklistener function called.", Toast.LENGTH_LONG).show();
+            }
+        });
+
 
         setTopBarViewHidden(true);
 //        setBottomBarViewHidden(true);
