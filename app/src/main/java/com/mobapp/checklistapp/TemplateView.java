@@ -17,6 +17,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.mobapp.checklistapp.util.MobappApplicationState;
 import com.mobapp.checklistapp.util.MobappConstant;
 
+import java.util.ArrayList;
+
 /**
  * Created by sherynn on 30/03/2018.
  */
@@ -27,7 +29,6 @@ public class TemplateView extends FrameLayout {
     private Context parentContext;
     private ListView listTemplate;
     String showTemplate_data;
-    private FirebaseDatabase mFdb;
     private DatabaseReference ref;
 
 
@@ -61,43 +62,40 @@ public class TemplateView extends FrameLayout {
     // Private Methods
     // ============================================================================================
 
-    DatabaseReference mDatabase;
-
-
     private void initData() {
         //Load payment entry xml
 
         LayoutInflater layoutInflater = (LayoutInflater) parentContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         layoutInflater.inflate(R.layout.template_view, this);
 
-        ref = FirebaseDatabase.getInstance().getReference("userID");
+        ref = FirebaseDatabase.getInstance().getReference("TemplateList");
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                //String zzz = dataSnapshot.getKey();
-                //String zzz = dataSnapshot.getValue(String.class);
-                //Log.d(TAG, "Value is: " + value);
-                //LoginVO userName = new LoginVO();
-                showTemplate_data = dataSnapshot.getValue(String.class);
-                //userName.setUserID(tex.getUser(user));
-                //System.out.println(tex);
-                //System.out.println(zzz.user);
+                final ArrayList<String> templateList = new ArrayList<String>();
+                for(DataSnapshot ds: dataSnapshot.getChildren()){
+                    templateList.add(ds.getValue(String.class));
+                }
+
+                String[] arrTemplate = new String[templateList.size()];
+                arrTemplate = templateList.toArray(arrTemplate);
 
                 listTemplate = (ListView) findViewById(R.id.listTemplate);
-//        showTemplate_data = "Template 33";
-                final String[] arrTemplate = {"Template 1","Template 2", showTemplate_data};
+
                 ArrayAdapter adapter = new ArrayAdapter<String>(MobappApplicationState.getInstance().getCurrentActiveContext(), R.layout.activity_listitemrow, arrTemplate);
                 listTemplate.setAdapter(adapter);
 
                 listTemplate.setOnItemClickListener(new AdapterView.OnItemClickListener()
                 {
                     @Override
-                    public void onItemClick(AdapterView<?> parent, View view,
-                                            int position, long id) {
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                        String data=(String)parent.getItemAtPosition(position);
                         Intent intent = new Intent(MobappApplicationState.getInstance().getCurrentActiveContext(), TemplateActivity.class);
-                        intent.putExtra(MobappConstant.TEMPLATE_VIEW_INTENT_TEMPLATE_ID, id);
+                        //intent.putExtra(MobappConstant.TEMPLATE_VIEW_INTENT_TEMPLATE_ID, data);
+                        intent.putExtra("templateID_passed", data);
 
                         MobappApplicationState.getInstance().getCurrentActivity().startActivity(intent);
                     }

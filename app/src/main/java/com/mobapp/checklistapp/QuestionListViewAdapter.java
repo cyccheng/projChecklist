@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by sherynn on 10/04/2018.
  */
@@ -24,6 +26,8 @@ public class QuestionListViewAdapter extends BaseAdapter {
         this.title = title;
 //        this.description = description;
     }
+
+
 
     public int getCount() {
         // TODO Auto-generated method stub
@@ -69,4 +73,5 @@ public class QuestionListViewAdapter extends BaseAdapter {
 
         return convertView;
     }
+
 }
