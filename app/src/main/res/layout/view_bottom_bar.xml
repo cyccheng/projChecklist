@@ -3,14 +3,17 @@
 
     <item
         android:id="@+id/bottomBarBtnHome"
+        android:icon="@drawable/icon_home"
         android:title="@string/HOME_NAV_TITLE"/>
 
     <item
         android:id="@+id/bottomBarBtnTemplate"
+        android:icon="@drawable/icon_document"
         android:title="@string/TEMPLATE_NAV_TITLE"/>
 
     <item
         android:id="@+id/bottomBarBtnSettings"
+        android:icon="@drawable/icon_settings"
         android:title="@string/SETTINGS_NAV_TITLE"/>
 
 </menu>

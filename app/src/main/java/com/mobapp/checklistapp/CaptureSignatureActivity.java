@@ -56,7 +56,9 @@ public class CaptureSignatureActivity extends MobappActivity {
     // ============================================================================================
 
     public void btnNavNextOnClicked(View view) {
-        signatureBitmap = signaturePad.getSignatureBitmap();
+        if (!signaturePad.isEmpty()) {
+            signatureBitmap = signaturePad.getSignatureBitmap();
+        }
     }
 
     public void btnClearOnClicked(View view) {

@@ -9,33 +9,45 @@
         android:text="@string/GENERAL_DUMMY"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:paddingLeft="5dp">
+        android:textSize="18sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" >
     </TextView>
 
-    <CheckBox
-        android:id="@+id/checkBoxYes"
+    <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lblTitle"
-        android:text="@string/GENERAL_YES"/>
+        android:orientation="horizontal" >
 
-    <CheckBox
-        android:id="@+id/checkBoxNo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lblTitle"
-        android:layout_toRightOf="@+id/checkBoxYes"
-        android:text="@string/GENERAL_NO"
-        android:layout_marginLeft="30dp"/>
+        <RadioButton
+            android:id="@+id/btnYes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/GENERAL_YES"
+            android:textSize="16sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp" />
 
-    <CheckBox
-        android:id="@+id/checkBoxNA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lblTitle"
-        android:layout_toRightOf="@+id/checkBoxNo"
-        android:text="@string/GENERAL_NA"
-        android:layout_marginLeft="30dp"/>
+        <RadioButton
+            android:id="@+id/btnNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/GENERAL_NO"
+            android:textSize="16sp"
+            android:layout_marginLeft="30dp" />
+
+        <RadioButton
+            android:id="@+id/btnNA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/GENERAL_NA"
+            android:textSize="16sp"
+            android:layout_marginLeft="30dp" />
+    </RadioGroup>
 
 </RelativeLayout>
