@@ -1,5 +1,6 @@
 package com.mobapp.checklistapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -31,7 +32,7 @@ public class TemplateActivity extends MobappActivity {
         super.setTopBarViewHidden(false);
         super.setNavAddButtonHidden(true);
         super.setNavTitle(getString(R.string.TEMPLATE_NAV_TITLE));
-        super.setNavAddButtonHidden(false);
+        super.setNavNextButtonHidden(false);
 
         if (savedInstanceState == null) {
             Bundle bundle = getIntent().getExtras();
@@ -98,5 +99,14 @@ public class TemplateActivity extends MobappActivity {
         View footer = (View) getLayoutInflater().inflate(R.layout.view_template_footer, null);
         listQuestion.addHeaderView(header);
         listQuestion.addFooterView(footer);
+    }
+
+
+    // ============================================================================================
+    // Button Action
+    // ============================================================================================
+
+    public void btnNavNextOnClicked(View view) {
+        MobappApplicationState.getInstance().getCurrentActivity().startActivity(new Intent(MobappApplicationState.getInstance().getCurrentActiveContext(), CaptureSignatureActivity.class));
     }
 }

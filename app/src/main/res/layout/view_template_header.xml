@@ -36,8 +36,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblStatusTitle" />
 
-
-
     <TextView
         android:id="@+id/lblCreatedOn"
         android:layout_width="wrap_content"
@@ -47,8 +45,6 @@
         android:text="@string/GENERAL_DUMMY"
         app:layout_constraintStart_toEndOf="@+id/lblCreatedOnTitle"
         app:layout_constraintTop_toBottomOf="@+id/lblStatus" />
-
-
 
     <TextView
         android:id="@+id/lblModifiedOnTitle"
