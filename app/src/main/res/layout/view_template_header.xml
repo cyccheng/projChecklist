@@ -36,6 +36,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblStatusTitle" />
 
+
+
     <TextView
         android:id="@+id/lblCreatedOn"
         android:layout_width="wrap_content"
@@ -46,6 +48,8 @@
         app:layout_constraintStart_toEndOf="@+id/lblCreatedOnTitle"
         app:layout_constraintTop_toBottomOf="@+id/lblStatus" />
 
+
+
     <TextView
         android:id="@+id/lblModifiedOnTitle"
         android:layout_width="115dp"
@@ -54,7 +58,6 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:text="@string/TEMPLATE_LBL_MODIFIED_ON"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblCreatedOnTitle" />
 
@@ -66,7 +69,6 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:text="@string/GENERAL_DUMMY"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/lblModifiedOnTitle"
         app:layout_constraintTop_toBottomOf="@+id/lblCreatedOn" />
 

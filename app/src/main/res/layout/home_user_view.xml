@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mobapp.checklistapp.HomeUserActivity">
+    tools:context="com.mobapp.checklistapp.HomeUserActivity"
+    tools:layout_editor_absoluteY="25dp">
 
     <!--<include layout="@layout/view_custom_base"></include>-->
 
@@ -22,9 +23,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Hello User!"
+        android:text="Hello User!!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imgLogo" />
+
+    <TextView
+        android:id="@+id/testFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textSize="45sp"
+        android:textColor="#9b59b6"
+        android:text="@string/fa_icon_areachart" />
 
 </android.support.constraint.ConstraintLayout>
