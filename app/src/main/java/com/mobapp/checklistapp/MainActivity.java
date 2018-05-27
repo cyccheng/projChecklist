@@ -23,7 +23,7 @@ public class MainActivity extends MobappActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ref = FirebaseDatabase.getInstance().getReference("userID");
+        //ref = FirebaseDatabase.getInstance().getReference("UserTable");
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -37,7 +37,7 @@ public class MainActivity extends MobappActivity {
     @Override
     public void onStart() {
         super.onStart();
-
+/*
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -58,7 +58,7 @@ public class MainActivity extends MobappActivity {
 
             }
         });
-
+*/
 
 
     }

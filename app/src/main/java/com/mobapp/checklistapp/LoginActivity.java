@@ -34,18 +34,18 @@ public class LoginActivity extends MobappActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setContentView(R.layout.activity_login);
-//        super.setContentViewWithAnimation(R.layout.activity_login, false);
+        //super.setContentView(R.layout.activity_login);
+        super.setContentViewWithAnimation(R.layout.activity_login, false);
 
         initUI();
 
-        ref = FirebaseDatabase.getInstance().getReference("userID");
+        //ref = FirebaseDatabase.getInstance().getReference("UserTable");
     }
 
     @Override
     public void onStart() {
         super.onStart();
-
+/*
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -68,7 +68,7 @@ public class LoginActivity extends MobappActivity {
             }
         });
 
-
+*/
 
     }
 

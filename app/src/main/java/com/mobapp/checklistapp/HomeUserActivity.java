@@ -17,8 +17,8 @@ public class HomeUserActivity extends HomeMainActivity {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_home_user);
 
-        Typeface iconFont = FontManager.getTypeface(getApplicationContext(), FontManager.FONTAWESOME);
-        FontManager.markAsIconContainer(findViewById(R.id.testFont), iconFont);
+        //Typeface iconFont = FontManager.getTypeface(getApplicationContext(), FontManager.FONTAWESOME);
+        //FontManager.markAsIconContainer(findViewById(R.id.testFont), iconFont);
 
 //        super.setViewContent(R.layout.activity_home_user);
 //        super.setNavBtnBackHidden(true);

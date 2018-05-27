@@ -2,9 +2,11 @@ package com.mobapp.checklistapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -53,13 +55,6 @@ public class TemplateActivity extends MobappActivity {
 
         ref = FirebaseDatabase.getInstance().getReference(templateID);
 
-        //initUI();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -71,11 +66,19 @@ public class TemplateActivity extends MobappActivity {
 
             }
         });
+        //initUI();
+    }
+/*
+    @Override
+    public void onStart() {
+        super.onStart();
+
+
 
 
 
     }
-
+*/
     // ============================================================================================
     // Private Methods
     // ============================================================================================
@@ -84,8 +87,6 @@ public class TemplateActivity extends MobappActivity {
 
 
         listQuestion = (ListView) findViewById(R.id.listQuestion);
-        int i = 1;
-
 
         ArrayList<Item> questList = new ArrayList<Item>();
 
@@ -98,7 +99,7 @@ public class TemplateActivity extends MobappActivity {
             }
         }
 
-        final String[] arrQuestion = MobappApplicationState.getInstance().getCurrentActiveContext().getResources().getStringArray(R.array.GH2_1);
+        //final String[] arrQuestion = MobappApplicationState.getInstance().getCurrentActiveContext().getResources().getStringArray(R.array.GH2_1);
 //        ArrayAdapter adapter = new ArrayAdapter<String>(MobappApplicationState.getInstance().getCurrentActiveContext(), R.layout.activity_listitemrow_question, arrQuestion);
         //QuestionListViewAdapter adapter = new QuestionListViewAdapter(MobappApplicationState.getInstance().getCurrentActivity(), questList);
 
@@ -128,6 +129,19 @@ public class TemplateActivity extends MobappActivity {
     // ============================================================================================
 
     public void btnNavNextOnClicked(View view) {
+
+        //Integer checkCt = listQuestion.getCount();
+        //System.out.print(checkCt);
+        //SparseBooleanArray checked = listQuestion.getCheckedItemPositions();
+        //for (int i = 0; i < checked.size(); i++) {
+            //if (checked.valueAt(i) == true) {
+               // String tag = String.valueOf(listQuestion.getItemAtPosition(checked.keyAt(i)));
+                //Toast.makeText(getApplicationContext(), "" + tag, Toast.LENGTH_LONG).show();
+                //Toast.makeText(MobappActivity.this, "Onclicklistener function called.", Toast.LENGTH_LONG).show();
+                //Log.i("xxxx", i + " " + tag);
+            //}
+       // }
+
         MobappApplicationState.getInstance().getCurrentActivity().startActivity(new Intent(MobappApplicationState.getInstance().getCurrentActiveContext(), CaptureSignatureActivity.class));
     }
 }
