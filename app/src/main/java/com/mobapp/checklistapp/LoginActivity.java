@@ -1,6 +1,5 @@
 package com.mobapp.checklistapp;
 
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -16,7 +15,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.mobapp.checklistapp.util.MobappConstant;
-import com.mobapp.checklistapp.util.MobappUserDataHandler;
 import com.mobapp.checklistapp.util.MobappViewControlManager;
 import com.mobapp.checklistapp.vo.LoginVO;
 
@@ -84,7 +82,7 @@ public class LoginActivity extends MobappActivity {
     }
 
     private Boolean inputValidation() {
-        if (TextUtils.isEmpty(txtUserID.getText().toString()) || TextUtils.isEmpty(txtUserID.getText().toString())) {
+        if (TextUtils.isEmpty(txtUserID.getText().toString()) || TextUtils.isEmpty(txtPassword.getText().toString())) {
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
             alertDialog.setTitle(getString(R.string.ALERT_INCOMPLETE_TITLE));
             alertDialog.setMessage(getString(R.string.ALERT_INCOMPLETE_MSG));
@@ -125,7 +123,8 @@ public class LoginActivity extends MobappActivity {
 
     private void requestLogin() {
         MobappViewControlManager.getInstance().dismissKeyboard();
-        ProgressDialog.show(this, getString(R.string.PROGRESS_DIALOG_TITLE), getString(R.string.PROGRESS_DIALOG_MSG));
+        MobappViewControlManager.getInstance().showLoadingView();
+//        ProgressDialog.show(this, getString(R.string.PROGRESS_DIALOG_TITLE), getString(R.string.PROGRESS_DIALOG_MSG));
 
         LoginVO loginVO = new LoginVO();
         loginVO.setUserID(txtUserID.getText().toString());
@@ -141,5 +140,8 @@ public class LoginActivity extends MobappActivity {
 //
 //        }
         //send to server
+
+        MobappViewControlManager.getInstance().dismissLoadingView();
+        MobappViewControlManager.getInstance().routeToHomeWithViewType(MobappConstant.MOBAPP_USER_IDENTITY_USER);
     }
 }

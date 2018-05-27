@@ -1,13 +1,13 @@
 package com.mobapp.checklistapp.util;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.inputmethod.InputMethodManager;
 
-import com.mobapp.checklistapp.HomeAdminActivity;
 import com.mobapp.checklistapp.HomeMainActivity;
-import com.mobapp.checklistapp.HomeUserActivity;
 import com.mobapp.checklistapp.LoginActivity;
+import com.mobapp.checklistapp.R;
 
 import junit.framework.Assert;
 
@@ -18,6 +18,7 @@ import junit.framework.Assert;
 public class MobappViewControlManager
 {
     private static MobappViewControlManager instance = null;
+    private ProgressDialog progressDialog;
 
     // ============================================================================================
     // Constructors
@@ -55,14 +56,14 @@ public class MobappViewControlManager
 
     public void routeAfterSplashScreen() {
 //        if (MobappUserDataHandler.getInstance().isLoggedIn()) {
-            MobappViewControlManager.getInstance().showHomeScreen();
+//            MobappViewControlManager.getInstance().showHomeScreen();
 //        }
 //        else {
-//            MobappViewControlManager.getInstance().showLoginScreen();
+            MobappViewControlManager.getInstance().showLoginScreen();
 //        }
     }
 
-    public void routeToHomeWithViewType(int viewType) {
+    public void routeToHomeWithViewType(String viewType) {
         Intent intent = new Intent(MobappApplicationState.getInstance().getCurrentActiveContext(), HomeMainActivity.class);
         intent.putExtra(MobappConstant.HOME_INTENT_VIEW_TYPE, viewType);
 
@@ -76,6 +77,18 @@ public class MobappViewControlManager
     public void dismissKeyboard() {
         InputMethodManager imm = (InputMethodManager)MobappApplicationState.getInstance().getCurrentActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(MobappApplicationState.getInstance().getCurrentActivity().getCurrentFocus().getWindowToken(), 0);
+    }
+
+    public void showLoadingView() {
+        progressDialog = new ProgressDialog(MobappApplicationState.getInstance().getCurrentActiveContext());
+        progressDialog.setTitle(MobappApplicationState.getInstance().getCurrentActiveContext().getString(R.string.PROGRESS_DIALOG_TITLE));
+        progressDialog.setMessage(MobappApplicationState.getInstance().getCurrentActiveContext().getString(R.string.PROGRESS_DIALOG_MSG));
+
+        progressDialog.show();
+    }
+
+    public void dismissLoadingView() {
+        progressDialog.dismiss();
     }
 
     // ============================================================================================
